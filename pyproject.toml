@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "eca-scrapper-poc"
+version = "0.0.1"
+description = "A POC for web scrapping using langchain"
+authors = ["Armando Castillo eduardocastillo@creai.mx"]
+license = "MIT"
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.11"
+beautifulsoup4 = "4.12.3"
+html2text = "2024.2.26"
+jupyter = "1.1.1"
+langchain = "0.3.14"
+langchain-openai = "0.3.0"
+langchain-community = "0.3.14"
+playwright = "1.49.1"
+python-dotenv = "^1.0.1"
