@@ -7,8 +7,10 @@ def install_playwright():
         print("Installing Playwright browsers...")
         subprocess.run(["playwright", "install"], check=True)
         print("Playwright installation completed successfully.")
+        subprocess.run(["crawl4ai-setup"], check=True)
+        print("crawl4ai-setup completed successfully.")
     except subprocess.CalledProcessError as e:
-        print("Error during Playwright installation.")
+        print("Error during Playwright installation or crawl4ai setup.")
         print(f"Details: {e}")
         raise
 
