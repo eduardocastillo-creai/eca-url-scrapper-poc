@@ -5,9 +5,17 @@ POETRY := poetry
 
 .DEFAULT_GOAL := help
 
+run:
+	@$(POETRY) run uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload
+
+test:
+	@$(POETRY) run pytest tests
+
 install-poetry:
 	@curl -sSL https://install.python-poetry.org | $(PYTHON) -
 	@echo "Poetry installed successfully."
+	@echo 'export PATH="$$HOME/.local/bin:$$PATH"' >> $$HOME/.zshrc
+	@echo "Poetry path added to ~/.zshrc. Run 'source ~/.zshrc' to apply changes."
 
 create-venv:
 	@$(PYTHON) -m venv $(VENV)
@@ -27,6 +35,10 @@ add-dep:
 add-dev-dep:
 	@[ -n "$(package)" ] || (echo "Error: Please specify a package (e.g., make add-dev-dep package=<package_name>)" && exit 1)
 	@$(POETRY) add $(package) --group dev
+
+add-test-dep:
+	@[ -n "$(package)" ] || (echo "Error: Please specify a test package (e.g., make add-test-dep package=<package_name>)" && exit 1)
+	@$(POETRY) add $(package) --group test
 
 build:
 	@$(POETRY) build

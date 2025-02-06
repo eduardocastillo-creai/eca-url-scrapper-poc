@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "eca-scrapper-poc"
-version = "0.0.1"
-description = "A POC for web scrapping using langchain"
+name = "web-scrapper-service"
+version = "0.1.0"
+description = "Microservice that scrapes webpages and return Markdown/HTML"
 authors = ["Armando Castillo eduardocastillo@creai.mx"]
 license = "MIT"
 readme = "README.md"
@@ -19,3 +19,10 @@ playwright = "1.49.1"
 python-dotenv = "^1.0.1"
 firecrawl-py = "^1.11.0"
 crawl4ai = "^0.4.247"
+fastapi = "^0.115.8"
+uvicorn = "^0.34.0"
+weasyprint = "^64.0"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.3.4"
+
